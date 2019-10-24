@@ -39,8 +39,7 @@ public class Main2 {
 		int[] randomNoArray = new int[NO_COUNT];
 		int[] userNoArray = new int[NO_COUNT];
 		
-		setRandomArray(randomNoArray);
-		
+		setRandomArray(randomNoArray);		
 		
 		//콘솔에서 값을 입력받기 위한 객체
 		Scanner scan = new Scanner(System.in);
@@ -58,13 +57,28 @@ public class Main2 {
 				System.out.println("-- 게임 종료 --");
 				break;
 			}
-		}
-		
-		scan.close();
-		
+		}		
+		scan.close();		
 	}
 	
-	
+	public static int checkFinish(int[] arr_1, int[] arr_2) {
+		int s=0, b=0;
+		
+		for(int i=0; i<NO_COUNT; i++) {//랜덤				
+			for(int z=0; z<NO_COUNT; z++) { //사용자 입력
+				if(arr_1[i] == arr_2[z]) {						
+					if(i == z) {
+						s++;
+					} else {
+						b++;
+					}
+				}
+			}
+		}
+		
+		System.out.printf("S: %d, B: %d, O: %d\n", s, b, NO_COUNT - (s + b));
+		return s;
+	}
 	
 	
 }
