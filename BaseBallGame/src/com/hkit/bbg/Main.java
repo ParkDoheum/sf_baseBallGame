@@ -26,17 +26,43 @@ public class Main {
 		
 		//콘솔에서 값을 입력받기 위한 객체
 		Scanner scan = new Scanner(System.in);
-		
-		for(int i=0; i<NO_COUNT; i++) {
-			System.out.print("값을 입력해 주세요 : ");
-			int value = scan.nextInt();
-			userNoArray[i] = value;	
+				
+		for(int item : randomNoArray) {
+			System.out.print(item + ", ");
 		}
+		System.out.println();
+		
+		//게임시작
+		while(true) {
+			for(int i=0; i<NO_COUNT; i++) {			
+				System.out.print("값을 입력해 주세요 : ");
+				int value = scan.nextInt();
+				userNoArray[i] = value;	
+			}
+			
+			int s=0, b=0;
+			
+			for(int i=0; i<NO_COUNT; i++) {//랜덤				
+				for(int z=0; z<NO_COUNT; z++) { //사용자 입력
+					if(randomNoArray[i] == userNoArray[z]) {						
+						if(i == z) {
+							s++;
+						} else {
+							b++;
+						}
+					}
+				}
+			}
+			
+			System.out.printf("S: %d, B: %d, O: %d\n", s, b, NO_COUNT - (s + b));
+			
+			if(s == NO_COUNT) {
+				System.out.println("-- 게임 종료 --");
+				break;
+			}
+		}
+		
 		scan.close();
-		
-		for(int item : userNoArray) {
-			System.out.println("value : " + item);
-		}
 		
 	}
 }
