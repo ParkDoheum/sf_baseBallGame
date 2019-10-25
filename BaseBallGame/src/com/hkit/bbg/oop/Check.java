@@ -23,6 +23,7 @@ public class Check {
 			}
 		}
 		
+		res.addGameCount();
 		res.setValues(s, b);		
 		res.showResult();
 		

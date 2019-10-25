@@ -6,6 +6,12 @@ public class RandomNumbers extends Numbers {
 		setRandomValues();
 	}	
 	
+	public void showAllNumbers() {
+		for(int item : getArray()) {
+			System.out.print(item + ", ");
+		}
+	}
+	
 	private void setRandomValues() {
 		int trueCnt = 0;
 		while(trueCnt < NO_COUNT) {

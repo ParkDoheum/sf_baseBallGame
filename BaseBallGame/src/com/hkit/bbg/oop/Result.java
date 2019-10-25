@@ -5,9 +5,18 @@ public class Result {
 	private int strike;
 	private int ball;
 	private int out;
+	private int gameCount;
 	
 	public Result(int no_count) {
 		NO_COUNT = no_count;
+	}
+	
+	public void addGameCount() {
+		this.gameCount++;
+	}
+	
+	public void showGameCount() {
+		System.out.printf("게임 %d번 시도\n", gameCount);
 	}
 	
 	public void setValues(int strike, int ball) {
